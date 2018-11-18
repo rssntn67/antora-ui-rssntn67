@@ -8,7 +8,6 @@ const { promisify } = require('util')
 const requireFromString = require('require-from-string')
 const vfs = require('vinyl-fs')
 const yaml = require('js-yaml')
-const generateIndex = require('antora-lunr')
 
 module.exports = async (src, dest, siteSrc, siteDest, sink) => {
   const [uiModel, layouts] = await Promise.all([
@@ -24,6 +23,7 @@ module.exports = async (src, dest, siteSrc, siteDest, sink) => {
       map((file, next) => {
         const compiledLayout = layouts[file.stem === '404' ? '404.hbs' : 'default.hbs']
         const siteRootPath = path.relative(path.dirname(file.path), path.resolve(siteSrc))
+        uiModel.env = process.env
         uiModel.siteRootPath = siteRootPath
         uiModel.siteRootUrl = path.join(siteRootPath, 'index.html')
         uiModel.uiRootPath = path.join(siteRootPath, '_')
@@ -33,20 +33,6 @@ module.exports = async (src, dest, siteSrc, siteDest, sink) => {
       })
     )
     .pipe(vfs.dest(siteDest))
-
-  const pages = [{
-    contents: fs.readFileSync(path.join(siteDest, 'index.html')),
-    src: {
-      component: uiModel.page.title,
-      version: uiModel.page.version,
-      stem: '',
-    },
-    pub: {
-      url: '/',
-    },
-  }]
-  const index = generateIndex(uiModel, pages)
-  fs.writeFileSync(path.join(siteDest, 'search_index.json'), Buffer.from(JSON.stringify(index), 'utf-8'))
 
   if (sink) stream.pipe(sink())
   return stream

@@ -1,3 +1,0 @@
-# ownCloud Documentation UI
-
-TBD

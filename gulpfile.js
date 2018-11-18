@@ -35,7 +35,6 @@ gulp.task('build:preview', ['build'], () =>
 
 gulp.task('preview', ['build:preview'], () =>
   preview(previewSiteDestDir, {
-    host: '0.0.0.0',
     port: 5252,
     livereload: process.env.LIVERELOAD === 'true',
     watch: {
