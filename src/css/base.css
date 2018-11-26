@@ -18,14 +18,19 @@ body {
 
 html {
   box-sizing: border-box;
-  font-family: "Roboto", sans-serif;
-  font-size: 1.1em;
+  font: 400 16px/24px "Roboto", sans-serif;
+  color: #212121;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  margin: 0;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
   text-size-adjust: 100%;
 }
 
 @media screen and (min-width: 1024px) {
   html {
-    font-size: 1.2em;
+    font-size: 1em;
   }
 }
 
@@ -40,7 +45,8 @@ a {
 }
 
 a:hover {
-  text-decoration: underline;
+  text-decoration: none;
+  color: #1a73e8;
 }
 
 code,

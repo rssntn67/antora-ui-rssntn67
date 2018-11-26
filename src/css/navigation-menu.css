@@ -49,9 +49,12 @@ html.is-clipped--nav {
   padding: 0.25em 0 0.125em;
 }
 
-.nav-menu a,
-.nav-menu a:visited {
+.nav-menu a {
   color: inherit;
+}
+
+.nav-menu a:hover {
+  color: #1a73e8;
 }
 
 .nav-list {
@@ -105,5 +108,5 @@ html.is-clipped--nav {
 
 .is-current-page > .nav-link,
 .is-current-page > .nav-text {
-  font-weight: 500;
+  color: #1a73e8;
 }
