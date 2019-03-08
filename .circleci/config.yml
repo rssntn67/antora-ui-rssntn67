@@ -51,4 +51,4 @@ jobs:
       - run:
           name: Push UI bundle archive to GitHub
           command: |
-            ghr -u ${GITHUB_USER} -r ${GITHUB_REPO} v1.0.0 build/ui-bundle.zip
+            ghr -replace -u ${GITHUB_USER} -r ${GITHUB_REPO} v1.0.0 build/ui-bundle.zip
