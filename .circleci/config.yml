@@ -12,13 +12,20 @@ executors:
 workflows:
   build-deploy:
     jobs:
-      - build
+      - build:
+          filters:
+            tags:
+              only: /.*/
       - deploy-github:
           requires:
             - build
+          filters:
+            tags:
+              only: /^v.*/
+            branches:
+              ignore: /.*/
 
 jobs:
-
   build:
     executor: gulp-executor
     steps:
@@ -51,4 +58,4 @@ jobs:
       - run:
           name: Push UI bundle archive to GitHub
           command: |
-            ghr -replace -u ${GITHUB_USER} -r ${GITHUB_REPO} v1.0.0 build/ui-bundle.zip
+            ghr -replace -u ${GITHUB_USER} -r ${GITHUB_REPO} $(cat release.version) build/ui-bundle.zip
