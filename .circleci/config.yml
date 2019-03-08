@@ -54,8 +54,8 @@ jobs:
     steps:
       - attach_workspace:
           at: ~/
-
       - run:
           name: Push UI bundle archive to GitHub
           command: |
-            ghr -replace -u ${GITHUB_USER} -r ${GITHUB_REPO} $(cat release.version) build/ui-bundle.zip
+            source release.version
+            ghr -replace -u "${GITHUB_USER}" -r "${GITHUB_REPO}" -n "${codename}" "v${release}" build/ui-bundle.zip
