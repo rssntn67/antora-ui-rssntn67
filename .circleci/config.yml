@@ -1,0 +1,54 @@
+version: 2.1
+
+executors:
+  gulp-executor:
+    docker:
+      - image: opennms/gulp:4.0.0-b1
+
+  ghr-executor:
+    docker:
+      - image: opennms/ghr:0.12.0-b1
+
+workflows:
+  build-deploy:
+    jobs:
+      - build
+      - deploy-github:
+          requires:
+            - build
+
+jobs:
+
+  build:
+    executor: gulp-executor
+    steps:
+      - checkout
+
+      - run: |
+          yarn install
+
+      - run: |
+          gulp bundle
+      
+      - run: |
+          gulp bundle:pack
+
+      - store_artifacts:
+          path: build/ui-bundle.zip
+          destination: ui-bundle.zip
+
+      - persist_to_workspace:
+          root: ~/
+          paths:
+            - project
+
+  deploy-github:
+    executor: ghr-executor
+    steps:
+      - attach_workspace:
+          at: ~/
+
+      - run:
+          name: Push UI bundle archive to GitHub
+          command: |
+            ghr -u ${GITHUB_USER} -r ${GITHUB_REPO} v1.0.0 build/ui-bundle.zip
