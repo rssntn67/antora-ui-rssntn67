@@ -264,7 +264,7 @@
   left: 0;
   font-size: calc(15 / var(--rem-base) * 1rem);
   padding: 0 0.5rem;
-  height: 1.25rem;
+  height: 1.5rem;
   line-height: 1;
   font-weight: var(--admonition-label-font-weight);
   text-transform: uppercase;
