@@ -30,15 +30,15 @@ module.exports = (src, previewSrc, previewDest, sink = () => map(), layouts = {}
       )
     ),
   ])
-    .then(([baseUiModel]) => Object.assign(baseUiModel, { env: process.env }))
+    .then(([baseUiModel]) => ({ ...baseUiModel, env: process.env }))
     .then((baseUiModel) =>
       vfs
         .src('**/*.adoc', { base: previewSrc, cwd: previewSrc })
         .pipe(
           map((file, enc, next) => {
             const siteRootPath = path.relative(ospath.dirname(file.path), ospath.resolve(previewSrc))
-            const uiModel = Object.assign({}, baseUiModel)
-            uiModel.page = Object.assign({}, uiModel.page)
+            const uiModel = { ...baseUiModel }
+            uiModel.page = { ...uiModel.page }
             uiModel.siteRootPath = siteRootPath
             uiModel.siteRootUrl = path.join(siteRootPath, 'index.html')
             uiModel.uiRootPath = path.join(siteRootPath, '_')
@@ -79,6 +79,8 @@ function registerPartials (src) {
 }
 
 function registerHelpers (src) {
+  handlebars.registerHelper('resolvePage', resolvePage)
+  handlebars.registerHelper('resolvePageURL', resolvePageURL)
   return vfs.src('helpers/*.js', { base: src, cwd: src }).pipe(
     map((file, enc, next) => {
       handlebars.registerHelper(file.stem, requireFromString(file.contents.toString()))
@@ -98,6 +100,14 @@ function compileLayouts (src, layouts) {
 
 function copyImages (src, dest) {
   return vfs.src('**/*.{png,svg}', { base: src, cwd: src }).pipe(vfs.dest(dest))
+}
+
+function resolvePage (spec, context = {}) {
+  if (spec) return { pub: { url: resolvePageURL(spec) } }
+}
+
+function resolvePageURL (spec, context = {}) {
+  if (spec) return '/' + (spec = spec.split(':').pop()).slice(0, spec.lastIndexOf('.')) + '.html'
 }
 
 function toPromise (stream) {
