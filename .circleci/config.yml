@@ -3,7 +3,7 @@ version: 2.1
 executors:
   gulp-executor:
     docker:
-      - image: opennms/gulp:4.0.0-b1
+      - image: node:10.14.2-stretch
 
   ghr-executor:
     docker:
@@ -32,13 +32,11 @@ jobs:
       - checkout
 
       - run: |
-          yarn install
+          npm install --quiet --no-progress --cache=.cache/npm
+          node_modules/.bin/gulp lint
 
       - run: |
-          gulp bundle
-      
-      - run: |
-          gulp bundle:pack
+          node_modules/.bin/gulp bundle
 
       - store_artifacts:
           path: build/ui-bundle.zip
