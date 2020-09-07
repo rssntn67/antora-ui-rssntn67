@@ -1,6 +1,7 @@
 .doc {
   color: var(--doc-font-color);
   font-size: var(--doc-font-size);
+  hyphens: auto;
   line-height: var(--doc-line-height);
   margin: var(--doc-margin);
   max-width: var(--doc-max-width);
@@ -9,9 +10,11 @@
 
 @media screen and (min-width: 1024px) {
   .doc {
+    flex: auto;
     font-size: var(--doc-font-size--desktop);
     margin: var(--doc-margin--desktop);
     max-width: var(--doc-max-width--desktop);
+    min-width: 0;
   }
 }
 
@@ -23,6 +26,7 @@
 .doc h6 {
   color: var(--heading-font-color);
   font-weight: var(--heading-font-weight);
+  hyphens: none;
   line-height: 1.3;
   margin: 1rem 0 0;
 }
@@ -103,22 +107,12 @@
   font-size: inherit;
 }
 
-.doc p,
-.doc :not(td) > .content,
-.doc .tableblock thead {
-  hyphens: auto;
-}
-
 .doc a {
   color: var(--link-font-color);
 }
 
 .doc a:hover {
   color: var(--link_hover-font-color);
-}
-
-.doc a.bare {
-  hyphens: none;
 }
 
 .doc a.unresolved {
@@ -262,9 +256,9 @@
   position: absolute;
   top: 0;
   left: 0;
-  font-size: calc(15 / var(--rem-base) * 1rem);
+  font-size: calc(13 / var(--rem-base) * 1rem);
   padding: 0 0.5rem;
-  height: 1.5rem;
+  height: 1.25rem;
   line-height: 1;
   font-weight: var(--admonition-label-font-weight);
   text-transform: uppercase;
@@ -305,7 +299,6 @@
 
 .doc .admonitionblock .icon i::after {
   content: attr(title);
-  hyphens: none;
 }
 
 .doc .imageblock {
@@ -456,6 +449,7 @@
   font-size: calc(16 / var(--rem-base) * 1rem);
   font-weight: var(--caption-font-weight);
   font-style: italic;
+  hyphens: none;
   letter-spacing: 0.01em;
   padding-bottom: 0.075rem;
   text-align: left;
@@ -546,12 +540,18 @@
 
 .doc .colist {
   font-size: calc(16 / var(--rem-base) * 1rem);
-  margin-top: 0.5rem;
+  margin: 0.25rem 0 -0.25rem;
 }
 
-.doc .colist > table tr > td:first-of-type {
-  padding: 0 0.75em;
-  line-height: 1;
+.doc .colist > table > tr > :first-child,
+.doc .colist > table > tbody > tr > :first-child {
+  padding: 0.25em 0.5rem 0;
+  vertical-align: top;
+}
+
+.doc .colist > table > tr > :last-child,
+.doc .colist > table > tbody > tr > :last-child {
+  padding: 0.25rem 0;
 }
 
 .doc .conum[data-value] {
@@ -629,4 +629,19 @@
   font-size: 1.1em;
   font-weight: var(--body-font-weight-bold);
   line-height: calc(1 / 1.1);
+}
+
+.doc a.bare,
+.doc b.button,
+.doc code,
+.doc .path,
+.doc kbd,
+.doc .menuseq,
+.doc .icon i::after {
+  hyphens: none;
+}
+
+.doc th.tableblock,
+.doc td.tableblock {
+  word-break: break-word; /* overflow-wrap for table cells; gives space higher precedence than hyphen opportunity */
 }
