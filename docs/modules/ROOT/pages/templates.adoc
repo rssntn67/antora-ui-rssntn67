@@ -42,7 +42,8 @@ s| [[site]]site
 
 | site.path
 | The pathname (i.e., subpath) of the site.url under which the site is hosted (e.g., /docs).
-Only set if site.url is defined.
+This value is empty if site.url is not defined, has no path segment, or matches /.
+Can be removed from the site.url value using a helper (e.g., `deleteSuffix site.url site.path`)
 (since Antora 2.1)
 
 | site.title
@@ -51,6 +52,8 @@ Only set if site.url is defined.
 | site.components
 | A map of all the components in the site, keyed by component name.
 Properties of each component include name, title, url, latest, and versions.
+Properties of each version include name (since 2.3), version, displayVersion, prerelease (if set), title, url, asciidoc (since 2.3), and navigation.
+The navigation property on each version provides access to the navigation menu for that component version.
 
 | site.ui
 | Information about the site UI.
@@ -65,7 +68,8 @@ s| [[page]]page
 | Information about the current page.
 
 | page.title
-| The page title (also used as the primary heading).
+| The page title in HTML format (often used as the primary heading).
+This value may include inline HTML elements and XML character references.
 
 | page.contents
 | The main article content in HTML format.
@@ -90,7 +94,7 @@ Properties include name, title, url, latest, and versions.
 
 | page.componentVersion
 | Information about the component version for the current page.
-Properties include version, displayVersion, prerelease (if set), title, and url.
+Properties include name (since 2.3), version, displayVersion, prerelease (if set), title, url, and asciidoc (since 2.3).
 
 | page.module
 | The name of the module for the current page.
@@ -107,9 +111,10 @@ Each entry has the properties url, string, and missing.
 
 | page.breadcrumbs
 | An array of breadcrumb items that represent the current selection in the navigation tree.
+Includes text-only and external items.
 
 | page.navigation
-| A collection of navigation links for the current page.
+| The hierarchical navigation menu for the component version of the current page.
 Each navigation item contains the property `content` as well as the optional properties `url` and (child) `items`.
 
 | page.url
@@ -124,8 +129,18 @@ If there are multiple versions of the component, the canonical URL is the qualif
 If there's only a single version of the component, the canonical URL is the qualified URL of the current page.
 
 | page.editUrl
-| The URL to edit the current page (typically a web-based editor on the git host).
-The only hosts supported right now are github.com, gitlab.com, pagure.io, and bitbucket.org.
+| The URL to edit the current page (i.e., activates the web-based editor on the git host).
+This value is derived automatically for the hosts github.com, gitlab.com, pagure.io, and bitbucket.org, even if the repository is private.
+If the host is not recognized, or you want to customize the value, you can use the `edit_url` key on the content source in the playbook.
+
+The default UI shows an "Edit this Page" link that points to this URL unless the repository is private (i.e., `page.origin.private` is true) or `page.fileUri` is set.
+You can force this link to be shown by setting the environment variable `FORCE_SHOW_EDIT_PAGE_LINK` (e.g., `FORCE_SHOW_EDIT_PAGE_LINK=true`) or by customizing the logic in the UI template.
+
+| page.fileUri
+| The local file:// URI to edit the current page if the page originates from the local filesystem (i.e., the worktree).
+
+If this property is set, the default UI shows an "Edit this Page" link that points to this URI (instead of the `page.editUrl` value) unless the `CI` environment variable is set (e.g., `CI=true`).
+When the `CI` environment variable is set, the default UI ignores this property (since linking to a local file:// URI in a published site doesn't make any sense).
 
 | page.origin.private
 | This value will be true if the repository requires authentication or the repository URL embeds credentials.
@@ -140,13 +155,13 @@ Then, the "Edit the Page" link will not appear.
 | The page layout for the current page.
 
 | page.next
-| The next logical page in the navigation tree.
+| The next reachable page in the navigation tree (skips past text-only and external items).
 
 | page.previous
-| The previous logical page in the navigation tree.
+| The previous reachable page in the navigation tree (skips past text-only and external items).
 
 | page.parent
-| The parent page in the navigation tree. Will resolve to grandparent if parent item is not a page.
+| The parent page in the navigation tree (skips past text-only and external items).
 
 s| env
 | The map of environment variables (sourced from `process.env`).
