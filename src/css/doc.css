@@ -189,6 +189,7 @@
 .doc table.tableblock thead th {
   border-bottom: 2.5px solid var(--table-border-color);
   padding: 0.5rem;
+  font-weight: bold;
 }
 
 .doc table.tableblock td,
