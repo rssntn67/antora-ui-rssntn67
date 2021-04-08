@@ -40,7 +40,7 @@ body {
 
   .navbar-end > a.navbar-item:hover,
   .navbar-end .navbar-link:hover {
-    background: var(--navbar_hover-background);
+    background: var(--color-chromatic-black);
     color: var(--navbar-font-color);
   }
 
@@ -49,7 +49,7 @@ body {
   }
 
   .navbar-item.has-dropdown:hover .navbar-link {
-    background: var(--navbar_hover-background);
+    background: var(--color-chromatic-black);
     color: var(--navbar-font-color);
   }
 }
@@ -177,7 +177,7 @@ body {
 
   .navbar-menu a.navbar-item:hover,
   .navbar-menu .navbar-link:hover {
-    background-color: var(--navbar-menu_hover-background);
+    background-color: var(--color-chromatic-black);
   }
 }
 
