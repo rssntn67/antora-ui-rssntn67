@@ -275,7 +275,7 @@ html.is-clipped--nav {
   padding-right: 1.5rem;
   margin-top: 1.3rem;
   height: 2.1rem;
-  border-right: 0.2rem #14d1df solid;
+  border-right: 0.2rem var(--nav-bar-logo-divider) solid;
 }
 
 /*

@@ -118,6 +118,15 @@ body {
   display: none;
 }
 
+.navbar-brand .navbar-site-title {
+  font-size: var(--navbar-site-title-font-size);
+  color: var(--navbar-font-color);
+  display: block;
+  line-height: var(--doc-line-height);
+  padding: 10.5px 1.6rem;
+  position: relative;
+}
+
 .navbar-item,
 .navbar-link {
   color: var(--navbar-menu-font-color);

@@ -30,12 +30,13 @@
   --body-font-size--desktop: 0.875em; /* 14px */
   --body-font-size--print: 0.875em; /* 14px */
   --body-line-height: 1.78;
-  --body-font-color: var(--color-jet-70);
+  --body-font-color: var(--color-chromatic-black);
   --body-font-family: "Open Sans", sans-serif;
   --body-font-weight-bold: 600;
   --heading-font-family: "Inter";
   --monospace-font-family: "Roboto Mono", monospace;
-  --monospace-font-weight-bold: 600;
+  --monospace-font-weight-bold: 400;
+  --navbar-site-title-font-size: 2rem;
   /* base */
   --body-background: var(--color-white);
   --panel-background: var(--color-smoke-30);
@@ -59,6 +60,7 @@
   --nav-muted-color: var(--color-gray-70);
   --nav-panel-divider-color: var(--color-smoke-90);
   --nav-secondary-background: var(--color-smoke-70);
+  --nav-bar-logo-divider: var(--color-sky-blue);
   /* toolbar */
   --toolbar-background: var(--panel-background);
   --toolbar-border-color: var(--panel-border-color);
