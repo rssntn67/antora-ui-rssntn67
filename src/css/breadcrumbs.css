@@ -5,6 +5,11 @@
   line-height: var(--nav-line-height);
 }
 
+.breadcrumbs a:hover {
+  color: var(--link-font-color);
+  text-decoration: none;
+}
+
 @media screen and (min-width: 1024px) {
   .breadcrumbs {
     display: block;
