@@ -23,6 +23,12 @@
   --color-cool-gray-2: #b4b6c8;
   --color-cool-gray-1: #e9ebf9;
   --color-sky-blue: #14d1df;
+  --color-marine-blue: #0081ad;
+  --color-sea-green: #85d9a5;
+  --color-sunrise-yellow: #ffaf22;
+  --color-dawn-maroon: #a5325e;
+  --color-aurora-purple: #7289ff;
+  --color-twilight-red: #ff555e;
 
   /* fonts */
   --rem-base: 14; /* used to compute rem value from desired pixel value (e.g., calc(18 / var(--rem-base) * 1rem) = 18px) */
@@ -57,8 +63,8 @@
   --nav-border-color: var(--color-gray-10);
   --nav-line-height: 1.35;
   --nav-heading-font-color: var(--color-jet-30);
-  --nav-muted-color: var(--color-gray-70);
-  --nav-panel-divider-color: var(--color-smoke-90);
+  --nav-muted-color: var(--color-cool-gray-4);
+  --nav-panel-divider-color: var(--color-cool-gray-3);
   --nav-secondary-background: var(--color-smoke-70);
   --nav-bar-logo-divider: var(--color-sky-blue);
   /* toolbar */
@@ -74,18 +80,18 @@
   --toc-border-color: var(--panel-border-color);
   --toc-line-height: 1.2;
   /* admonitions */
-  --caution-color: #a0439c;
+  --caution-color: var(--color-dawn-maroon);
   --caution-on-color: var(--color-white);
-  --important-color: #d32f2f;
+  --important-color: var(--color-twilight-red);
   --important-on-color: var(--color-white);
-  --note-color: #217ee7;
+  --note-color: var(--color-marine-blue);
   --note-on-color: var(--color-white);
-  --tip-color: #41af46;
+  --tip-color: var(--color-sea-green);
   --tip-on-color: var(--color-white);
-  --warning-color: #e18114;
+  --warning-color: var(--color-sunrise-yellow);
   --warning-on-color: var(--color-white);
   /* doc */
-  --doc-font-color: var(--color-jet-50);
+  --doc-font-color: var(--color-chromatic-black);
   --doc-font-size: inherit;
   --doc-font-size--desktop: calc(17 / var(--rem-base) * 1rem);
   --doc-line-height: 1.6;
@@ -95,8 +101,8 @@
   --heading-font-weight: normal;
   --alt-heading-font-weight: var(--body-font-weight-bold);
   --section-divider-color: var(--panel-border-color);
-  --link-font-color: #1565c0;
-  --link_hover-font-color: #104d92;
+  --link-font-color: var(--color-marine-blue);
+  --link_hover-font-color: var(--color-sky-blue);
   --link_unresolved-font-color: var(--important-color);
   --abstract-background: var(--color-smoke-70);
   --abstract-font-color: var(--color-jet-20);

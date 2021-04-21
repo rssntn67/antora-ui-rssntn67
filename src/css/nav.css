@@ -122,7 +122,12 @@ html.is-clipped--nav {
 }
 
 .nav-menu a {
-  color: inherit;
+  color: var(--doc-font-color);
+  text-decoration: none;
+}
+
+.nav-menu a:hover {
+  color: var(--link-font-color);
 }
 
 .nav-list {
@@ -257,11 +262,16 @@ html.is-clipped--nav {
 .nav-panel-explore .component .version a {
   border: 1px solid var(--nav-border-color);
   border-radius: 0.25rem;
-  color: inherit;
+  color: var(--doc-font-color);
+  text-decoration: none;
   opacity: 0.75;
   white-space: nowrap;
   padding: 0.125em 0.25em;
   display: inherit;
+}
+
+.nav-panel-explore .component .version a:hover {
+  color: var(--link-font-color);
 }
 
 .nav-panel-explore .component .is-current a {

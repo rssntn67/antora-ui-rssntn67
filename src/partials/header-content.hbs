@@ -1,8 +1,15 @@
 <header class="header">
   <nav class="navbar">
-     <a href="{{{or site.url (or siteRootUrl siteRootPath)}}}"><img class="navbar-logo" src="{{{uiRootPath}}}/img/logotype.svg"/></a> 
+    <a href="{{{or site.url (or siteRootUrl siteRootPath)}}}"><img class="navbar-logo" src="{{{uiRootPath}}}/img/logotype.svg"/></a>
     <div class="navbar-brand">
-      <a class="navbar-item" href="{{{or site.url (or siteRootUrl siteRootPath)}}}">{{site.title}}</a>
+      <a class="navbar-site-title" href="https://docs.opennms.com">{{site.title}}</a>
+
+      {{#if env.DOCSEARCH_ENABLED}}
+      <div class="navbar-item">
+        <input id="search-input" type="text" placeholder="Search docs">
+      </div>
+      {{/if}}
+
       <button class="navbar-burger" data-target="topbar-nav">
         <span></span>
         <span></span>
@@ -11,7 +18,6 @@
     </div>
     <div id="topbar-nav" class="navbar-menu">
       <div class="navbar-end">
-        <a class="navbar-item" href="#">Home</a>
         <div class="navbar-item has-dropdown is-hoverable">
           <a class="navbar-link" href="#">Videos</a>
           <div class="navbar-dropdown">
@@ -38,12 +44,12 @@
             <a class="navbar-item" href="https://www.opennms.com/sponsored-development" target="blank">Sponsored Development</a>
           </div>
         </div>
-        <div class="navbar-item">
-          <span class="control">
-            <a class="button is-primary" href="https://github.com/opennms" target="blank">GitHub</a>
-          </span>
-        </div>
-      </div>
+        <a class="navbar-item" href="https://vault.opennms.com/docs/">Archived Docs</a>
+    </div>
+    <div class="navbar-item">
+      <span class="control">
+        <a class="button is-primary" href="https://github.com/opennms" target="blank">GitHub</a>
+      </span>
     </div>
   </nav>
 </header>
