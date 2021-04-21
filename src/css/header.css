@@ -132,7 +132,7 @@ body {
   color: var(--navbar-menu-font-color);
   display: block;
   line-height: var(--doc-line-height);
-  padding: 2.25rem 1.6rem;
+  padding: 2.25rem 1rem;
   position: relative;
 }
 
