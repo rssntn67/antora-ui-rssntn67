@@ -186,7 +186,7 @@ body {
 
   .navbar-menu a.navbar-item:hover,
   .navbar-menu .navbar-link:hover {
-    background-color: var(--color-chromatic-black);
+    color: var(--link-font-color);
   }
 }
 
