@@ -262,7 +262,7 @@ html.is-clipped--nav {
 .nav-panel-explore .component .version a {
   border: 1px solid var(--nav-border-color);
   border-radius: 0.25rem;
-  color: var(--doc-font-color);
+  color: var(--color-cool-gray-2);
   text-decoration: none;
   opacity: 0.75;
   white-space: nowrap;
@@ -278,6 +278,10 @@ html.is-clipped--nav {
   border-color: currentColor;
   opacity: 0.9;
   font-weight: var(--body-font-weight-bold);
+}
+
+.nav-panel-explore .component .is-latest a {
+  color: var(--color-chromatic-black);
 }
 
 .navbar-logo {
