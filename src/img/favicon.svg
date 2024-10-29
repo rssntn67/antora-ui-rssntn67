@@ -1,1 +1,64 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><defs><style>.cls-1{fill:#14d1df;}</style></defs><g id="Layer_2" data-name="Layer 2"><g id="Logos"><path class="cls-1" d="M4.46,9.12A27.28,27.28,0,0,1,1.68,5.57,10.84,10.84,0,0,1,1,4.22,8,8,0,0,0,2,13.29C2.09,12.43,3,10.88,4.46,9.12Z"/><path class="cls-1" d="M6.88,11.54C5.12,13,3.57,13.91,2.71,14a8,8,0,0,0,9.07,1.05,11.54,11.54,0,0,1-1.95-1.13A28.79,28.79,0,0,1,6.88,11.54Z"/><path class="cls-1" d="M9.12,4.46C10.88,3,12.43,2.09,13.29,2A8,8,0,0,0,4.22,1a11.54,11.54,0,0,1,2,1.13A28.79,28.79,0,0,1,9.12,4.46Z"/><path class="cls-1" d="M14,2.71c-.09.86-1,2.41-2.46,4.17a27.28,27.28,0,0,1,2.78,3.55,10.84,10.84,0,0,1,.73,1.35A8,8,0,0,0,14,2.71Z"/><path class="cls-1" d="M8,5.42H8C5.25,2.94,2.77,1.51,2.14,2.14s1.3,3.94,4.54,7.18Q7.34,10,8,10.58Z"/><path class="cls-1" d="M10.58,8h0Q10,8.66,9.32,9.32T8,10.58c2.75,2.48,5.23,3.91,5.86,3.28S13.06,10.75,10.58,8Z"/></g></g></svg>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   viewBox="0 0 16 16"
+   version="1.1"
+   id="svg6"
+   sodipodi:docname="favicon.svg"
+   inkscape:version="1.4 (e7c3feb1, 2024-10-09)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview6"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="12.784103"
+     inkscape:cx="11.224878"
+     inkscape:cy="17.247984"
+     inkscape:window-width="1728"
+     inkscape:window-height="1052"
+     inkscape:window-x="0"
+     inkscape:window-y="65"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="Logos" />
+  <defs
+     id="defs1">
+    <style
+       id="style1">.cls-1{fill:#14d1df;}</style>
+  </defs>
+  <g
+     id="Layer_2"
+     data-name="Layer 2"
+     transform="translate(0.23052988,-0.23052988)">
+    <g
+       id="Logos">
+      <path
+         class="cls-1"
+         d="M 9.12,4.46 C 10.88,3 12.43,2.09 13.29,2 a 8,8 0 0 0 -9.07,-1 11.54,11.54 0 0 1 2,1.13 28.79,28.79 0 0 1 2.9,2.33 z"
+         id="path3"
+         style="fill:#cccccc" />
+      <path
+         class="cls-1"
+         d="m 14,2.71 c -0.09,0.86 -1,2.41 -2.46,4.17 a 27.28,27.28 0 0 1 2.78,3.55 10.84,10.84 0 0 1 0.73,1.35 A 8,8 0 0 0 14,2.71 Z"
+         id="path4"
+         style="fill:#ff0000" />
+      <path
+         class="cls-1"
+         d="m 8,5.42 v 0 C 5.25,2.94 2.77,1.51 2.14,2.14 1.51,2.77 3.44,6.08 6.68,9.32 7.12,9.7733333 7.56,10.193333 8,10.58 Z"
+         id="path5"
+         sodipodi:nodetypes="cssccc"
+         style="fill:#008000" />
+      <path
+         class="cls-1"
+         d="M 10.58,8 V 8 Q 10,8.66 9.32,9.32 8.64,9.98 8,10.58 c 2.75,2.48 5.23,3.91 5.86,3.28 0.63,-0.63 -0.8,-3.11 -3.28,-5.86 z"
+         id="path6"
+         style="fill:#b3b3b3" />
+    </g>
+  </g>
+</svg>
